@@ -52,6 +52,96 @@ img { max-width: 100%; display: block; }
 .eyebrow--dark { color: var(--ember); }
 
 /* ---------------------------------------------------------
+   Music toggle — "Sabor a Mí"
+--------------------------------------------------------- */
+.music-toggle {
+  position: fixed;
+  right: clamp(1rem, 4vw, 1.6rem);
+  bottom: clamp(1rem, 4vw, 1.6rem);
+  z-index: 15;
+  width: 54px;
+  height: 54px;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: 0 10px 24px -8px rgba(0,0,0,0.6);
+}
+
+.music-toggle svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  animation: musicSpin 6s linear infinite;
+  animation-play-state: paused;
+}
+.music-toggle[aria-pressed="true"] svg { animation-play-state: running; }
+
+@keyframes musicSpin { to { transform: rotate(360deg); } }
+
+.music-toggle__label {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  background: var(--paper);
+  color: var(--ink-on-paper);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.music-toggle:hover .music-toggle__label,
+.music-toggle:focus-visible .music-toggle__label {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-toggle svg { animation: none; }
+}
+
+.music-hint {
+  position: fixed;
+  right: clamp(3.6rem, 12vw, 4.4rem);
+  bottom: clamp(4.6rem, 15vw, 5.6rem);
+  z-index: 14;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  pointer-events: none;
+  animation: hintBounce 1.8s ease-in-out infinite;
+  transition: opacity 0.4s ease;
+}
+.music-hint.is-hidden { opacity: 0; }
+
+.music-hint__text {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 460;
+  font-size: 0.95rem;
+  color: var(--yellow-soft);
+  white-space: nowrap;
+}
+
+.music-hint__arrow { width: 58px; height: 58px; }
+
+@keyframes hintBounce {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(6px, 8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-hint { animation: none; }
+}
+
+/* ---------------------------------------------------------
    Falling petals — la lluvia de flores amarillas
 --------------------------------------------------------- */
 .petals {

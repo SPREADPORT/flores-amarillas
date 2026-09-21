@@ -14,6 +14,33 @@
 
 <div class="petals" aria-hidden="true" id="petals"></div>
 
+<audio id="bgAudio" src="audio/sabor-a-mi.mp3" loop preload="none"></audio>
+<button class="music-toggle" id="musicToggle" type="button" aria-pressed="false" aria-label="Reproducir Sabor a Mí">
+  <svg viewBox="0 0 60 60" aria-hidden="true">
+    <circle cx="30" cy="30" r="28" fill="var(--bg)" stroke="var(--yellow)" stroke-width="2"/>
+    <g fill="var(--yellow)">
+      <ellipse cx="30" cy="19" rx="5" ry="9"/>
+      <ellipse cx="30" cy="41" rx="5" ry="9"/>
+      <ellipse cx="19" cy="30" rx="9" ry="5"/>
+      <ellipse cx="41" cy="30" rx="9" ry="5"/>
+      <ellipse cx="22" cy="22" rx="4.5" ry="8" transform="rotate(-45 22 22)"/>
+      <ellipse cx="38" cy="38" rx="4.5" ry="8" transform="rotate(-45 38 38)"/>
+      <ellipse cx="38" cy="22" rx="4.5" ry="8" transform="rotate(45 38 22)"/>
+      <ellipse cx="22" cy="38" rx="4.5" ry="8" transform="rotate(45 22 38)"/>
+    </g>
+    <circle cx="30" cy="30" r="6" fill="var(--ember)"/>
+  </svg>
+  <span class="music-toggle__label" id="musicToggleLabel">Sabor a Mí</span>
+</button>
+
+<div class="music-hint" id="musicHint" aria-hidden="true">
+  <span class="music-hint__text">tócala</span>
+  <svg class="music-hint__arrow" viewBox="0 0 70 70" aria-hidden="true">
+    <path d="M8 8 C 20 30, 30 45, 52 58" fill="none" stroke="var(--yellow)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M40 58 L54 60 L50 46" fill="none" stroke="var(--yellow)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+
 <header class="hero">
   <div class="hero__ambient" aria-hidden="true"></div>
   <div class="hero__content">

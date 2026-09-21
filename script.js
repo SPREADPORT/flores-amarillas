@@ -147,6 +147,24 @@
   lightboxClose?.addEventListener("click", closeLightbox);
   lightboxScrim?.addEventListener("click", closeLightbox);
 
+  /* ---------- Música ---------- */
+  const musicToggle = document.getElementById("musicToggle");
+  const bgAudio = document.getElementById("bgAudio");
+  const musicHint = document.getElementById("musicHint");
+
+  musicToggle?.addEventListener("click", () => {
+    musicHint?.classList.add("is-hidden");
+    if (bgAudio.paused) {
+      bgAudio.play().catch(() => {});
+      musicToggle.setAttribute("aria-pressed", "true");
+      musicToggle.setAttribute("aria-label", "Pausar Sabor a Mí");
+    } else {
+      bgAudio.pause();
+      musicToggle.setAttribute("aria-pressed", "false");
+      musicToggle.setAttribute("aria-label", "Reproducir Sabor a Mí");
+    }
+  });
+
   /* ---------- Falling petals ---------- */
   const petalContainer = document.getElementById("petals");
   if (petalContainer && !reduceMotion) {
