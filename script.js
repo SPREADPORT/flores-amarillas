@@ -95,6 +95,15 @@
 
   giftbox?.addEventListener("click", toggleBox);
 
+  /* ---------- Abrir el sobre del bono ---------- */
+  const envelope = document.getElementById("envelope");
+  const voucherScene = document.getElementById("voucherScene");
+
+  envelope?.addEventListener("click", () => {
+    voucherScene.classList.add("is-open");
+    envelope.setAttribute("aria-pressed", "true");
+  });
+
   /* ---------- Lightbox ---------- */
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightboxImg");

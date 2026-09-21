@@ -87,8 +87,50 @@
         <circle cx="60" cy="60" r="7" fill="var(--bg)"/>
       </svg>
     </div>
-    <p class="closing__text">Para las flores que ya cayeron<br>y las que todavía nos faltan.</p>
+    <div class="closing__letter">
+      <p>Nunca he entendido muy bien el significado de las flores amarillas. Pero sí sé que llevo buscando, de mil maneras distintas, hacerte feliz.</p>
+      <p>Hoy, aunque no estemos juntos, quiero darte tus flores amarillas. Quiero hacerte sentir amada, especial, única.</p>
+    </div>
+    <p class="closing__text">Te amo con todo mi corazón.<br>Eres la niña de mis ojos.</p>
     <p class="closing__meta" id="yearMeta">21 de septiembre</p>
+  </section>
+
+  <section class="voucher">
+    <p class="eyebrow eyebrow--dark">un pendiente</p>
+    <h2 class="voucher__title">Tu bono de flores amarillas</h2>
+    <p class="voucher__hint">Toca el sobre para abrirlo.</p>
+
+    <div class="voucher__scene" id="voucherScene">
+      <div class="coupon" id="coupon" aria-hidden="true">
+        <span class="coupon__notch coupon__notch--left"></span>
+        <span class="coupon__notch coupon__notch--right"></span>
+        <p class="coupon__eyebrow">bono oficial · edición única</p>
+        <h3 class="coupon__title">Un ramo real de<br>flores amarillas</h3>
+        <p class="coupon__body">Canjeable por un ramo de verdad, entregado en persona. Sin excusas ni recordatorios: solo hay que presentarlo.</p>
+        <div class="coupon__divider"></div>
+        <p class="coupon__valid">Válido a partir de octubre</p>
+      </div>
+
+      <button class="envelope" id="envelope" type="button" aria-label="Abrir el bono de flores amarillas" aria-pressed="false">
+        <svg class="envelope__svg" viewBox="0 0 220 150" aria-hidden="true">
+          <rect class="envelope__shadow" x="14" y="118" width="192" height="10" rx="5"/>
+          <rect class="envelope__body" x="10" y="30" width="200" height="104" rx="6"/>
+          <path class="envelope__crease" d="M10 34 L110 96 L210 34" fill="none"/>
+          <path class="envelope__flap" d="M10 30 L110 92 L210 30 Z"/>
+          <g class="envelope__seal" transform="translate(110,54) scale(0.46)">
+            <circle cx="0" cy="0" r="18" fill="var(--ember)"/>
+            <g fill="var(--yellow)">
+              <ellipse cx="0" cy="-13" rx="5.5" ry="10"/>
+              <ellipse cx="0" cy="13" rx="5.5" ry="10"/>
+              <ellipse cx="-13" cy="0" rx="10" ry="5.5"/>
+              <ellipse cx="13" cy="0" rx="10" ry="5.5"/>
+            </g>
+            <circle cx="0" cy="0" r="5" fill="var(--ember)"/>
+          </g>
+        </svg>
+        <span class="envelope__label" id="envelopeLabel">Toca para abrir</span>
+      </button>
+    </div>
   </section>
 
 </main>

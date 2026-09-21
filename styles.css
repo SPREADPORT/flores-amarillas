@@ -448,6 +448,19 @@ img { max-width: 100%; display: block; }
 
 .closing__mark { display: flex; justify-content: center; margin-bottom: 1.5rem; }
 
+.closing__letter {
+  display: grid;
+  gap: 1rem;
+  max-width: 46ch;
+  margin: 0 auto 2rem;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 420;
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  line-height: 1.65;
+  color: var(--ink-dim);
+}
+
 .closing__text {
   font-family: var(--display);
   font-style: italic;
@@ -464,6 +477,151 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-dim);
+}
+
+/* ---------------------------------------------------------
+   Voucher — el bono de flores amarillas
+--------------------------------------------------------- */
+.voucher {
+  background: var(--bg-panel);
+  text-align: center;
+  padding: clamp(4rem, 10vw, 6rem) 1.5rem clamp(5rem, 12vw, 7rem);
+}
+
+.voucher__title {
+  font-family: var(--display);
+  font-weight: 460;
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  color: var(--ink);
+  margin: 0 0 0.7rem;
+}
+
+.voucher__hint {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-dim);
+  margin: 0;
+}
+
+.voucher__scene {
+  position: relative;
+  width: min(90vw, 360px);
+  min-height: 260px;
+  margin: 2.5rem auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.envelope {
+  position: relative;
+  z-index: 4;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: min(72vw, 240px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  color: inherit;
+  font: inherit;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  animation: boxBreathe 3.4s ease-in-out infinite;
+}
+.voucher__scene.is-open .envelope {
+  opacity: 0;
+  transform: scale(0.85) translateY(12px);
+  pointer-events: none;
+  animation: none;
+}
+
+.envelope__svg { width: 100%; height: auto; overflow: visible; }
+.envelope__shadow { fill: rgba(0,0,0,0.4); filter: blur(2px); }
+.envelope__body { fill: var(--paper); }
+.envelope__flap { fill: var(--yellow-soft); }
+.envelope__crease { stroke: rgba(33,28,13,0.18); stroke-width: 1.5; }
+
+.envelope__label {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.coupon {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 100%;
+  max-width: 320px;
+  height: fit-content;
+  background: var(--paper);
+  color: var(--ink-on-paper);
+  border-radius: 10px;
+  padding: 1.8rem 1.5rem 1.5rem;
+  z-index: 2;
+  box-shadow: 0 24px 48px -18px rgba(0,0,0,0.6);
+  opacity: 0;
+  transform: scale(0.8) rotate(-3deg);
+  transition: transform 0.6s cubic-bezier(0.22, 1.4, 0.36, 1) 0.15s, opacity 0.5s ease 0.15s;
+}
+.voucher__scene.is-open .coupon {
+  opacity: 1;
+  transform: scale(1) rotate(-1.2deg);
+}
+
+.coupon__notch {
+  position: absolute;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--bg-panel);
+  transform: translateY(-50%);
+}
+.coupon__notch--left { left: -11px; }
+.coupon__notch--right { right: -11px; }
+
+.coupon__eyebrow {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin: 0 0 0.8rem;
+}
+
+.coupon__title {
+  font-family: var(--display);
+  font-weight: 480;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  line-height: 1.15;
+  margin: 0 0 0.9rem;
+}
+
+.coupon__body {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--ink-on-paper-dim);
+  margin: 0;
+}
+
+.coupon__divider {
+  border-top: 2px dashed rgba(33,28,13,0.25);
+  margin: 1.3rem 0;
+}
+
+.coupon__valid {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-on-paper);
+  margin: 0;
 }
 
 /* ---------------------------------------------------------
