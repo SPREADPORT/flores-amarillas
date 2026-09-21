@@ -1,0 +1,362 @@
+/* ---------------------------------------------------------
+   Día de las Flores Amarillas
+   Tokens
+--------------------------------------------------------- */
+:root {
+  --bg: #141f0d;
+  --bg-panel: #1b2913;
+  --paper: #f4ecd6;
+  --ink: #f6efdd;
+  --ink-dim: #b9c2a0;
+  --ink-on-paper: #211c0d;
+  --ink-on-paper-dim: #6b6248;
+  --yellow: #f2b705;
+  --yellow-soft: #ffd966;
+  --ember: #c1440e;
+
+  --display: "Fraunces", ui-serif, Georgia, serif;
+  --body: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--yellow-soft);
+  margin: 0 0 1.2rem;
+}
+.eyebrow--dark { color: var(--ember); }
+
+/* ---------------------------------------------------------
+   Falling petals — la lluvia de flores amarillas
+--------------------------------------------------------- */
+.petals {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -5vh;
+  width: 12px;
+  height: 16px;
+  background: var(--yellow);
+  border-radius: 0 60% 0 60%;
+  opacity: 0.85;
+  animation-name: fall, sway;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  will-change: transform;
+}
+
+.petal--soft { background: var(--yellow-soft); }
+
+.petal--butterfly {
+  width: 16px;
+  height: 12px;
+  background: none;
+  border-radius: 0;
+}
+.petal--butterfly::before,
+.petal--butterfly::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  background: var(--yellow-soft);
+  top: 0;
+}
+.petal--butterfly::before { left: 0; border-radius: 8px 2px 8px 2px; }
+.petal--butterfly::after  { right: 0; border-radius: 2px 8px 2px 8px; }
+
+@keyframes fall {
+  from { transform: translateY(-10vh); }
+  to   { transform: translateY(110vh); }
+}
+@keyframes sway {
+  0%, 100% { margin-left: 0; }
+  50% { margin-left: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .petal { animation: none; opacity: 0.5; }
+}
+
+/* ---------------------------------------------------------
+   Hero
+--------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% 30%;
+}
+
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(20,31,13,0.35) 0%, rgba(20,31,13,0.15) 35%, rgba(20,31,13,0.75) 78%, rgba(20,31,13,0.96) 100%),
+    linear-gradient(90deg, rgba(20,31,13,0.55) 0%, rgba(20,31,13,0.05) 55%);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding: 4rem clamp(1.5rem, 6vw, 5rem) 5rem;
+  max-width: 780px;
+}
+
+.hero__title {
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  font-weight: 480;
+  font-size: clamp(2.6rem, 7.5vw, 5.4rem);
+  line-height: 0.98;
+  margin: 0 0 1.3rem;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.hero__subtitle {
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.55;
+  max-width: 46ch;
+  color: var(--ink-dim);
+  margin: 0 0 2rem;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  color: var(--bg);
+  background: var(--yellow-soft);
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+}
+.hero__badge[data-mode="today"] { background: var(--ember); color: var(--ink); }
+.hero__badge[data-mode="today"]::before { content: "●"; color: var(--yellow-soft); }
+.hero__badge[data-mode="loading"] { opacity: 0; }
+
+.hero__scroll {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 46px;
+  background: rgba(246,239,221,0.25);
+  z-index: 2;
+}
+.hero__scroll span {
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--yellow);
+  animation: scrollDown 2.2s ease-in-out infinite;
+}
+@keyframes scrollDown {
+  0% { top: 0; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll span { animation: none; top: 40%; opacity: 1; }
+}
+
+/* ---------------------------------------------------------
+   Story
+--------------------------------------------------------- */
+.story {
+  position: relative;
+  background: var(--paper);
+  color: var(--ink-on-paper);
+  padding: clamp(4rem, 10vw, 7rem) clamp(1.5rem, 6vw, 5rem);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.story__title {
+  font-family: var(--display);
+  font-weight: 460;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 2rem;
+  max-width: 18ch;
+}
+
+.story__body {
+  display: grid;
+  gap: 1.3rem;
+  max-width: 62ch;
+  font-size: clamp(1.02rem, 1.4vw, 1.15rem);
+  line-height: 1.7;
+}
+
+.story__quote {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 420;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  color: var(--ember);
+  border-left: 3px solid var(--yellow);
+  padding-left: 1.4rem;
+  margin: 3rem 0 0;
+  max-width: 40ch;
+}
+
+/* ---------------------------------------------------------
+   Gallery — mesa de recuerdos
+--------------------------------------------------------- */
+.gallery {
+  background: var(--bg-panel);
+  padding: clamp(4rem, 10vw, 7rem) clamp(1.5rem, 6vw, 5rem) clamp(5rem, 10vw, 8rem);
+}
+
+.gallery__title {
+  font-family: var(--display);
+  font-weight: 460;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 3rem;
+  color: var(--ink);
+}
+
+.gallery__grid {
+  columns: 3 240px;
+  column-gap: clamp(1.2rem, 3vw, 2.2rem);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.polaroid {
+  break-inside: avoid;
+  margin: 0 0 clamp(1.5rem, 3vw, 2.4rem);
+  background: var(--paper);
+  padding: 10px 10px 0;
+  border-radius: 3px;
+  box-shadow: 0 14px 28px -12px rgba(0,0,0,0.55);
+  transform: rotate(var(--r, 0deg));
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) translateY(-4px) scale(1.015);
+  box-shadow: 0 20px 34px -12px rgba(0,0,0,0.65);
+  z-index: 3;
+  position: relative;
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  filter: saturate(1.02);
+}
+
+.polaroid__stamp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-on-paper-dim);
+  padding: 0.7rem 0.2rem 0.9rem;
+}
+
+.polaroid__stamp span:last-child { color: var(--ember); }
+
+/* ---------------------------------------------------------
+   Closing
+--------------------------------------------------------- */
+.closing {
+  text-align: center;
+  padding: clamp(5rem, 12vw, 8rem) 1.5rem;
+  background: var(--bg);
+}
+
+.closing__mark { display: flex; justify-content: center; margin-bottom: 1.5rem; }
+
+.closing__text {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 420;
+  font-size: clamp(1.5rem, 3.4vw, 2.3rem);
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0 0 1.2rem;
+}
+
+.closing__meta {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+/* ---------------------------------------------------------
+   Footer
+--------------------------------------------------------- */
+.site-footer {
+  background: var(--bg);
+  color: var(--ink-dim);
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 0 1.5rem 2.5rem;
+}
+
+/* ---------------------------------------------------------
+   Responsive
+--------------------------------------------------------- */
+@media (max-width: 640px) {
+  .hero__content { padding: 3rem 1.4rem 3.5rem; }
+  .gallery__grid { columns: 2 160px; }
+  .story, .gallery { padding-left: 1.4rem; padding-right: 1.4rem; }
+}

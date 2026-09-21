@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Día de las Flores Amarillas · 21 de septiembre</title>
+<meta name="description" content="Un pequeño rincón para el 21 de septiembre, día de las flores amarillas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=IBM+Plex+Mono:wght@400;500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="petals" aria-hidden="true" id="petals"></div>
+
+<header class="hero">
+  <img class="hero__photo" src="images/foto-05.jpg" alt="Una pareja se besa al atardecer, con las luces de la ciudad encendiéndose de fondo.">
+  <div class="hero__scrim"></div>
+  <div class="hero__content">
+    <p class="eyebrow">21 de septiembre</p>
+    <h1 class="hero__title">Día de las<br>flores amarillas</h1>
+    <p class="hero__subtitle">Un día al año en el que el calendario nos da permiso de decir, en voz alta, lo que casi siempre decimos bajito.</p>
+    <p class="hero__badge" id="dateBadge" data-mode="loading">calculando el calendario…</p>
+  </div>
+  <div class="hero__scroll" aria-hidden="true">
+    <span></span>
+  </div>
+</header>
+
+<main>
+
+  <section class="story">
+    <p class="eyebrow eyebrow--dark">la tradición</p>
+    <h2 class="story__title">Por qué flores amarillas</h2>
+    <div class="story__body">
+      <p>Cuentan que cada 21 de septiembre hay que regalar —o regalarse— flores amarillas. Nadie se pone muy de acuerdo en el origen exacto: para unos es una tradición universitaria que se volvió costumbre de barrio, para otros es un eco de Macondo, de ese pueblo inventado donde las flores amarillas caían del cielo como si el aire mismo quisiera celebrar algo.</p>
+      <p>Nosotros no necesitamos el origen para quedarnos con la costumbre. Cada año la adoptamos un poco más: es la excusa perfecta para detener el día un momento y decirnos, sin mucho drama, que seguimos aquí, juntos, con ganas de las próximas flores.</p>
+    </div>
+    <p class="story__quote">«Que caigan flores amarillas, aunque sea una vez al año.»</p>
+  </section>
+
+  <section class="gallery">
+    <p class="eyebrow eyebrow--dark">nuestras flores</p>
+    <h2 class="gallery__title">Un ramo de recuerdos</h2>
+    <div class="gallery__grid" id="galleryGrid">
+      <!-- las fotos se insertan desde script.js -->
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="closing__mark" aria-hidden="true">
+      <svg viewBox="0 0 120 120" width="72" height="72">
+        <path fill="var(--yellow)" d="M60 10c8 14 8 26 0 36 10-6 22-6 32 2 -6 10-16 14-28 12 10 8 14 20 8 34 -14-2-22-12-24-26 -2 14-10 24-24 26 -6-14-2-26 8-34 -12 2-22-2-28-12 10-8 22-8 32-2 -8-10-8-22 0-36 8 14 8 26 0 36 -8-10-8-22 0-36 -8 14-8 26 0 36z" opacity="0"></path>
+        <circle cx="60" cy="60" r="6" fill="var(--yellow)"/>
+        <g fill="var(--yellow)">
+          <ellipse cx="60" cy="34" rx="10" ry="20"/>
+          <ellipse cx="60" cy="86" rx="10" ry="20"/>
+          <ellipse cx="34" cy="60" rx="20" ry="10"/>
+          <ellipse cx="86" cy="60" rx="20" ry="10"/>
+          <ellipse cx="42" cy="42" rx="9" ry="17" transform="rotate(-45 42 42)"/>
+          <ellipse cx="78" cy="78" rx="9" ry="17" transform="rotate(-45 78 78)"/>
+          <ellipse cx="78" cy="42" rx="9" ry="17" transform="rotate(45 78 42)"/>
+          <ellipse cx="42" cy="78" rx="9" ry="17" transform="rotate(45 42 78)"/>
+        </g>
+        <circle cx="60" cy="60" r="7" fill="var(--bg)"/>
+      </svg>
+    </div>
+    <p class="closing__text">Para las flores que ya cayeron<br>y las que todavía nos faltan.</p>
+    <p class="closing__meta" id="yearMeta">21 de septiembre</p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Hecho a mano, un 21 de septiembre.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
