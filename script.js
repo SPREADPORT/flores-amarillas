@@ -3,17 +3,17 @@
 
   /* ---------- Data: una flor por foto ---------- */
   const photos = [
-    { file: "foto-05.jpg", w: 1600, h: 1200, alt: "Un beso al atardecer, con las luces de la ciudad encendiéndose de fondo." },
-    { file: "foto-07.jpg", w: 1600, h: 1200, alt: "Un beso en una terraza, con la ciudad y el cielo nublado de fondo." },
+    { file: "foto-05.jpg", w: 1200, h: 1600, alt: "Un beso al atardecer, con las luces de la ciudad encendiéndose de fondo." },
+    { file: "foto-07.jpg", w: 1200, h: 1600, alt: "Un beso en una terraza, con la ciudad y el cielo nublado de fondo." },
     { file: "foto-01.jpg", w: 1600, h: 900,  alt: "Los dos en una piscina, él con los pulgares arriba sobre un flotador rosado." },
     { file: "foto-08.jpg", w: 1600, h: 1200, alt: "Selfie al atardecer en una terraza, con la ciudad iluminándose de fondo." },
     { file: "foto-02.jpg", w: 900,  h: 1600, alt: "Selfie de los dos sonriendo frente a un restaurante." },
-    { file: "foto-09.jpg", w: 1600, h: 1200, alt: "Los dos haciendo pucheros juntos frente a una pared de ladrillo." },
+    { file: "foto-09.jpg", w: 1200, h: 1600, alt: "Los dos haciendo pucheros juntos frente a una pared de ladrillo." },
     { file: "foto-04.jpg", w: 1600, h: 900,  alt: "Los dos esperando en una sala, ella lanzando un beso a la cámara." },
-    { file: "foto-06.jpg", w: 1600, h: 1200, alt: "Selfie frente a un edificio, ella con la mano en su hombro." },
+    { file: "foto-06.jpg", w: 1200, h: 1600, alt: "Selfie frente a un edificio, ella con la mano en su hombro." },
     { file: "foto-03.jpg", w: 1600, h: 900,  alt: "Selfie divertida en una tienda de ropa." },
     { file: "foto-10.jpg", w: 1600, h: 1200, alt: "Selfie entre plantas, ella lanzando un beso." },
-    { file: "foto-11.jpg", w: 1600, h: 1200, alt: "Selfie junto a una piscina, él con gorra." },
+    { file: "foto-11.jpg", w: 1200, h: 1600, alt: "Selfie junto a una piscina, él con gorra." },
   ];
 
   const TOTAL = photos.length;
