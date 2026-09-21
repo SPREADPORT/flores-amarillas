@@ -15,17 +15,46 @@
 <div class="petals" aria-hidden="true" id="petals"></div>
 
 <header class="hero">
-  <img class="hero__photo" src="images/foto-05.jpg" alt="Una pareja se besa al atardecer, con las luces de la ciudad encendiéndose de fondo.">
-  <div class="hero__scrim"></div>
+  <div class="hero__ambient" aria-hidden="true"></div>
   <div class="hero__content">
     <p class="eyebrow">21 de septiembre</p>
     <h1 class="hero__title">Día de las<br>flores amarillas</h1>
-    <p class="hero__subtitle">Un día al año en el que el calendario nos da permiso de decir, en voz alta, lo que casi siempre decimos bajito.</p>
+    <p class="hero__subtitle" id="heroSubtitle">Un ramo entero, guardado en una caja, esperando a que alguien se anime a abrirlo.</p>
     <p class="hero__badge" id="dateBadge" data-mode="loading">calculando el calendario…</p>
   </div>
-  <div class="hero__scroll" aria-hidden="true">
-    <span></span>
+
+  <div class="scene" id="scene">
+    <div class="bouquet" id="bouquet" aria-hidden="true"></div>
+
+    <button class="giftbox" id="giftbox" type="button" aria-label="Abrir la caja y ver el ramo de flores" aria-pressed="false">
+      <svg class="giftbox__svg" viewBox="0 0 200 170" aria-hidden="true">
+        <ellipse class="giftbox__shadow" cx="100" cy="156" rx="72" ry="9"/>
+        <rect class="giftbox__body" x="34" y="64" width="132" height="82" rx="5"/>
+        <rect class="giftbox__ribbon-v" x="93" y="64" width="14" height="82"/>
+        <g class="giftbox__lid">
+          <rect class="giftbox__lid-box" x="24" y="40" width="152" height="28" rx="5"/>
+          <rect class="giftbox__ribbon-v" x="93" y="40" width="14" height="28"/>
+          <g class="giftbox__bow" transform="translate(100,34) scale(0.62)">
+            <circle cx="0" cy="0" r="6" fill="var(--ember)"/>
+            <g fill="var(--yellow)">
+              <ellipse cx="0" cy="-26" rx="10" ry="20"/>
+              <ellipse cx="0" cy="26" rx="10" ry="20"/>
+              <ellipse cx="-26" cy="0" rx="20" ry="10"/>
+              <ellipse cx="26" cy="0" rx="20" ry="10"/>
+              <ellipse cx="-18" cy="-18" rx="9" ry="17" transform="rotate(-45 -18 -18)"/>
+              <ellipse cx="18" cy="18" rx="9" ry="17" transform="rotate(-45 18 18)"/>
+              <ellipse cx="18" cy="-18" rx="9" ry="17" transform="rotate(45 18 -18)"/>
+              <ellipse cx="-18" cy="18" rx="9" ry="17" transform="rotate(45 -18 18)"/>
+            </g>
+            <circle cx="0" cy="0" r="7" fill="var(--bg)"/>
+          </g>
+        </g>
+      </svg>
+      <span class="giftbox__label" id="giftboxLabel">Toca para abrir</span>
+    </button>
   </div>
+
+  <p class="scene__counter" id="sceneCounter">0 de 11 flores abiertas</p>
 </header>
 
 <main>
@@ -38,14 +67,6 @@
       <p>Nosotros no necesitamos el origen para quedarnos con la costumbre. Cada año la adoptamos un poco más: es la excusa perfecta para detener el día un momento y decirnos, sin mucho drama, que seguimos aquí, juntos, con ganas de las próximas flores.</p>
     </div>
     <p class="story__quote">«Que caigan flores amarillas, aunque sea una vez al año.»</p>
-  </section>
-
-  <section class="gallery">
-    <p class="eyebrow eyebrow--dark">nuestras flores</p>
-    <h2 class="gallery__title">Un ramo de recuerdos</h2>
-    <div class="gallery__grid" id="galleryGrid">
-      <!-- las fotos se insertan desde script.js -->
-    </div>
   </section>
 
   <section class="closing">
@@ -75,6 +96,15 @@
 <footer class="site-footer">
   <p>Hecho a mano, un 21 de septiembre.</p>
 </footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto del ramo" hidden>
+  <div class="lightbox__scrim" id="lightboxScrim"></div>
+  <figure class="lightbox__card">
+    <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Cerrar foto">&times;</button>
+    <img class="lightbox__img" id="lightboxImg" src="" alt="">
+    <figcaption class="lightbox__caption" id="lightboxCaption"></figcaption>
+  </figure>
+</div>
 
 <script src="script.js"></script>
 </body>
