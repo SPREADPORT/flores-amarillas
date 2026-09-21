@@ -165,6 +165,35 @@
     }
   });
 
+  /* ---------- La flor de entrada ---------- */
+  const introGate = document.getElementById("introGate");
+  const introFlower = document.getElementById("introFlower");
+  const site = document.getElementById("site");
+
+  introFlower?.addEventListener("click", () => {
+    bgAudio.play().catch(() => {});
+    musicToggle?.setAttribute("aria-pressed", "true");
+    musicToggle?.setAttribute("aria-label", "Pausar Sabor a Mí");
+
+    if (musicToggle) {
+      const start = introFlower.getBoundingClientRect();
+      const end = musicToggle.getBoundingClientRect();
+      const scale = end.width / start.width;
+      const dx = (end.left + end.width / 2) - (start.left + start.width / 2);
+      const dy = (end.top + end.height / 2) - (start.top + start.height / 2);
+      introFlower.style.transform = `translate(${dx}px, ${dy}px) scale(${scale})`;
+    }
+
+    document.body.classList.remove("gate-active");
+    introGate.classList.add("is-leaving");
+    site?.removeAttribute("aria-hidden");
+
+    setTimeout(() => {
+      introGate.hidden = true;
+      document.body.classList.add("site--ready");
+    }, reduceMotion ? 0 : 750);
+  });
+
   /* ---------- Falling petals ---------- */
   const petalContainer = document.getElementById("petals");
   if (petalContainer && !reduceMotion) {

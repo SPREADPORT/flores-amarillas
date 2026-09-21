@@ -10,11 +10,35 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=IBM+Plex+Mono:wght@400;500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="gate-active">
+
+<audio id="bgAudio" src="audio/sabor-a-mi.mp3" loop preload="none"></audio>
+
+<div class="intro-gate" id="introGate">
+  <div class="intro-gate__scrim" aria-hidden="true"></div>
+  <button class="intro-gate__flower" id="introFlower" type="button" autofocus aria-label="Entrar y reproducir Sabor a Mí">
+    <svg viewBox="0 0 120 120" aria-hidden="true">
+      <circle cx="60" cy="60" r="56" fill="var(--bg)" stroke="var(--yellow)" stroke-width="2"/>
+      <g fill="var(--yellow)">
+        <ellipse cx="60" cy="38" rx="10" ry="18"/>
+        <ellipse cx="60" cy="82" rx="10" ry="18"/>
+        <ellipse cx="38" cy="60" rx="18" ry="10"/>
+        <ellipse cx="82" cy="60" rx="18" ry="10"/>
+        <ellipse cx="44" cy="44" rx="9" ry="16" transform="rotate(-45 44 44)"/>
+        <ellipse cx="76" cy="76" rx="9" ry="16" transform="rotate(-45 76 76)"/>
+        <ellipse cx="76" cy="44" rx="9" ry="16" transform="rotate(45 76 44)"/>
+        <ellipse cx="44" cy="76" rx="9" ry="16" transform="rotate(45 44 76)"/>
+      </g>
+      <circle cx="60" cy="60" r="12" fill="var(--ember)"/>
+    </svg>
+  </button>
+  <p class="intro-gate__label">Toca la flor para entrar</p>
+</div>
+
+<div class="site" id="site" aria-hidden="true">
 
 <div class="petals" aria-hidden="true" id="petals"></div>
 
-<audio id="bgAudio" src="audio/sabor-a-mi.mp3" loop preload="none"></audio>
 <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false" aria-label="Reproducir Sabor a Mí">
   <svg viewBox="0 0 60 60" aria-hidden="true">
     <circle cx="30" cy="30" r="28" fill="var(--bg)" stroke="var(--yellow)" stroke-width="2"/>
@@ -163,6 +187,8 @@
   </section>
 
 </main>
+
+</div>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto del ramo" hidden>
   <div class="lightbox__scrim" id="lightboxScrim"></div>
