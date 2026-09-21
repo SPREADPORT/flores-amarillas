@@ -174,7 +174,6 @@
 
   /* ---------- Date badge ---------- */
   const badge = document.getElementById("dateBadge");
-  const yearMeta = document.getElementById("yearMeta");
 
   if (badge) {
     const now = new Date();
@@ -191,7 +190,5 @@
       badge.textContent = `Faltan ${days} día${days === 1 ? "" : "s"} para las flores amarillas`;
       badge.dataset.mode = "countdown";
     }
-
-    if (yearMeta) yearMeta.textContent = `21 de septiembre · ${year}`;
   }
 })();
